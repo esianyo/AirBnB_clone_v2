@@ -45,22 +45,21 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r') as f:
                 temp = json.load(f)
                 for key, val in temp.items():
-                        self.all()[key] = classes[val['__class__']](**val)
+                    self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
 
-
     def delete(self, obj=None):
-        """Deletes obj from __objects if it's inside. If obj is equal to None, the method should not do anything."""
+        """Deletes obj from __objects if it’s inside"""
         if obj is not None:
-            key = '{}.{}'.format(type(obj).__name__, obj.id)
-            self.__objects.pop(key, None)
+            key = obj.__class__.__name__ + '.' + obj.id
+            if key in FileStorage.__objects:
+                del FileStorage.__objects[key]
 
     def all(self, cls=None):
-        """
-        Returns the list of objects of one type of class. Example with State - it's an optional filtering.
-        """
-        if cls is not None:
-            return [obj for key, obj in self.__objects.items() if isinstance(obj, cls)]
+        """Returns the list of objects of one type of class"""
+        if cls is None:
+            return FileStorage.__objects
         else:
-            return self.__objects.values()
+            return {k: v for k, v in FileStorage.__objects.items()
+                    if type(v) == cls}
