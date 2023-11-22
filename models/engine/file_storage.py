@@ -48,3 +48,19 @@ class FileStorage:
                         self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
+
+
+    def delete(self, obj=None):
+        """Deletes obj from __objects if it's inside. If obj is equal to None, the method should not do anything."""
+        if obj is not None:
+            key = '{}.{}'.format(type(obj).__name__, obj.id)
+            self.__objects.pop(key, None)
+
+    def all(self, cls=None):
+        """
+        Returns the list of objects of one type of class. Example with State - it's an optional filtering.
+        """
+        if cls is not None:
+            return [obj for key, obj in self.__objects.items() if isinstance(obj, cls)]
+        else:
+            return self.__objects.values()
