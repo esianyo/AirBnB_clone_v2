@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#distributes an archive to your web servers
+"""distributes an archive to your web servers"""
 
 import time
 # from fabric.context_managers import cd
@@ -13,7 +13,7 @@ import os.path
 
 
 def do_pack():
-
+"""function for pack"""
     try:
         if not os.path.exists('versions'):
             l = local("mkdir -p versions")
