@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-"""distributes an archive to your web servers"""
-
+"""
+    distributes an archive to your web servers
+"""
 import time
 # from fabric.context_managers import cd
 from fabric.api import local
@@ -13,7 +14,7 @@ import os.path
 
 
 def do_pack():
-"""function for pack"""
+    """ pack my static"""
     try:
         if not os.path.exists('versions'):
             l = local("mkdir -p versions")
