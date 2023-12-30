@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """a script that starts a Flask web application"""
 
+
 from flask import Flask
 
 
@@ -15,6 +16,12 @@ def hello_hbnb():
 @app.route("/hbnb", strict_slashes=False)
 def hbnb():
     return "HBNB"
+
+
+@app.route("/c/<text>", strict_slashes=False)
+def c_route(text):
+    processed_text = text.replace("_", " ")  # Replace underscores with spaces
+    return f"C {processed_text}"
 
 
 if __name__ == "__main__":
