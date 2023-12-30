@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 0x04. AirBnB clone - Web framework
 
 This project is part of the Python, Back-end, and Webserver tracks, focusing on Flask. The main concept for this project is the AirBnB clone.
@@ -33,3 +34,6 @@ Read or watch:
 - [List of Control Structures (read up to “Call”)](https://jinja.palletsprojects.com/en/3.1.x/templates/#list-of-control-structures)
 - [Flask](https://flask.palletsprojects.com/en/2.1.x/)
 - [Jinja](https://jinja.palletsprojects.com/en/3.1.x/)
+=======
+This project focuses on building a web framework with flask. 
+>>>>>>> b41de0a8e2c71dc9ff8ece4748cb8e9e5102a303
