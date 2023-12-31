@@ -31,11 +31,11 @@ def python_text(text="is cool"):
     return f"Python {text}"
 
 
-@app.route('/number/<n>')
-def number(n):
-    if not n.isdigit():
-        return "n is not a number", 400
-    return f"{n} is a number"
+# Map /number/<n>
+@app.route('/number/<int:n>', strict_slashes=False)
+def number_route(n):
+    """Function that displays "<passed number>"""
+    return '{} is a number'.format(n)
 
 
 if __name__ == '__main__':
